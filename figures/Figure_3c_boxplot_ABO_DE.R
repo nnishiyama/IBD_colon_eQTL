@@ -1,4 +1,4 @@
-# Figure 4c. ABO DE results: CL vs NIBD
+# Figure 3c. ABO DE results: CL vs NIBD
 
 library(data.table)
 library(tidyverse)
@@ -44,7 +44,7 @@ x <- merge(x, coldata, by = 'sample')
 # add genotypes
 x <- merge(x, g, by.x = 'sample', by.y = 'row.names')
 # plot
-png(filename = '/work/users/n/n/nnishi/eqtl/freeze/final/figures/Figure4c_boxplot_ABO_DE.png',
+png(filename = 'plots/Figure_3c_boxplot_ABO_DE.png',
     res = 300, units = 'in', height = 6, width = 5)
 ggplot(x, aes(disease, ABO)) + geom_boxplot(outlier.shape = NA) +
   geom_jitter(height = 0, width=0.3, size = 2.5, aes(color = `Risk allelic dosage`)) + 

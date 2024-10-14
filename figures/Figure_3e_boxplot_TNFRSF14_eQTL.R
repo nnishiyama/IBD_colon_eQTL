@@ -1,4 +1,4 @@
-# Figure 4e. TNFRSF14 eQTL
+# Figure 3e. TNFRSF14 eQTL boxplot
 library(data.table)
 library(tidyverse)
 library(ggplot2)
@@ -14,11 +14,11 @@ df <- df %>% mutate(ra_dosage = ifelse(ra_dosage == 0, 2,
                                        ifelse(ra_dosage == 2, 0, ra_dosage)))
 df$ra_dosage <- factor(df$ra_dosage)
 # load phenotype data
-coldata <- fread('/proj/fureylab/nnishi/eqtl/RNA-seq_All_genotyped_colon_2024-01-12.txt')
+coldata <- fread('data/IBD_coldata_UIDs.txt')
 # merge
 df <- merge(df, coldata, by = 'sample', all.x = TRUE)
 # plot
-png(filename = '/work/users/n/n/nnishi/eqtl/freeze/final/figures/Figure4e_boxplot_TNFRSF14_eQTL.png',
+png(filename = 'plots/Figure_3e_boxplot_TNFRSF14_eQTL.png',
     res = 300, units = 'in', height = 7, width = 7)
 ggplot(df, aes(ra_dosage, TNFRSF14)) + geom_boxplot(outlier.shape=NA, aes(group=ra_dosage), lwd=1) + 
   geom_jitter(height=0, width=0.3, size=4, aes(color=disease)) + 

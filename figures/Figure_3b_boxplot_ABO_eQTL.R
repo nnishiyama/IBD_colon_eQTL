@@ -1,4 +1,4 @@
-# Figure 4b. ABO eQTL
+# Figure 3b. ABO eQTL boxplot
 library(data.table)
 library(tidyverse)
 library(ggplot2)
@@ -11,11 +11,11 @@ df <- df %>% select(sample, ENSG00000175164.16, ra_dosage)
 colnames(df) <- c('sample', 'ABO', 'ra_dosage')
 df$ra_dosage <- factor(df$ra_dosage)
 # load phenotype data
-coldata <- fread('/proj/fureylab/nnishi/eqtl/RNA-seq_All_genotyped_colon_2024-01-12.txt')
+coldata <- fread('data/UNC/IBD_coldata_UIDs.txt')
 # merge
 df <- merge(df, coldata, by = 'sample', all.x = TRUE)
 # plot
-png(filename = '/work/users/n/n/nnishi/eqtl/freeze/final/figures/Figure4b_boxplot_ABO_eQTL.png',
+png(filename = 'plots/Figure_3b_boxplot_ABO_eQTL.png',
     res = 300, units = 'in', height = 6, width = 6)
 ggplot(df, aes(ra_dosage, ABO)) + geom_boxplot(outlier.shape=NA, aes(group=ra_dosage), lwd=1) + 
   geom_jitter(height=0, width=0.3, size=4, aes(color=disease)) + 
