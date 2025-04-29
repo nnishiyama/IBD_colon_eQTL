@@ -7,7 +7,7 @@ library(qvalue)
 library(ggplot2)
 library(ggsignif)
 
-coloc.ibd <- fread('data/UNC/Supplementary_Table_7_coloc_h4_IBD_eQTL_GWAS.txt')
+coloc.ibd <- fread('data/UNC/Supplementary_Table_7_coloc_H4_IBD_eQTL_GWAS.txt')
 coloc.gtex <- fread('data/GTEx/Supplementary_Table_8_coloc_H4_GTEx_eQTL_colon_transverse_GWAS.txt')
 coloc.barcuva <- fread('data/BarcUVa/Supplementary_Table_9_coloc_H4_BarcUVa_eQTL_GWAS.txt')
 # reformat
